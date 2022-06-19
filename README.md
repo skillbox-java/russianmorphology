@@ -45,7 +45,35 @@ Just add _morphology-1.5.jar_ in your Solr lib-directories
   
   * It works only with UTF-8.
   * It assume what letters е and ё are the same.
-  * Word forms with prefixes like "наибольший" treated as separate word. 
+  * Word forms with prefixes like "наибольший" treated as separate word.
+
+### Deploy libs to Github Repository
+
+Use command 
+
+```shell
+mvn clean deploy
+```
+
+For GitHub authorization use Personal access tokens with Scope `write:packages`.
+
+Add token in {TOKEN} placeholder in `~/.m2/settings.xml` for GitHub repository id.
+
+```xml
+<servers>
+    <server>
+      <id>github</id>
+      <configuration>
+        <httpHeaders>
+          <property>
+            <name>Authorization</name>
+            <value>Bearer {TOKEN}</value>
+          </property>
+        </httpHeaders>
+      </configuration>
+    </server>
+  </servers>
+```
 
 ### License
 
